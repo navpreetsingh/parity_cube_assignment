@@ -1,0 +1,21 @@
+<div class="row">
+  <%= form_for :room, url: rooms_index_path(room_type_id: params[:id]), :authenticity_token => true do |f| %>         
+    
+    <div class="col-xs-4 col-xx-12">
+      <label class="form-title">Check In Date<span class="mandatory">*</span></label>
+      <%= f.text_field :check_in, placeholder: "Check In", :class => "form-control date_pick", required: true, date: true %>
+    </div>
+    <div class="col-xs-4 col-xx-12">
+      <label class="form-title">Check Out Date<span class="mandatory">*</span></label>
+      <%= f.text_field :check_out, placeholder: "Check Out", :class => "form-control date_pick", required: true, date: true %>
+    </div>
+    
+    <div class="form_btns">
+      <%= f.submit "Next", :class => 'btn nextbtn btn-orange' %>     
+    </div>    
+  <% end %>
+</div>
+
+<script type="text/javascript">
+    $('.date_pick').datepicker();
+</script>

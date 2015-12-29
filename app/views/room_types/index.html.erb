@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Room Types</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Total No. of Rooms</th>
+      <th>Room Type</th>
+      <th>Description</th>
+      <th>Price / Night</th>      
+      <th> Book a Room </th>      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @room_types.each do |rt| %>
+      <tr>
+        <td><%= rt.total_rooms %></td>
+        <td><%= rt.name %></td>
+        <td><%= rt.description %></td>
+        <td><%= rt.price %></td>
+        <td><%= link_to 'Book',  book_room_type_path(id: rt.id), class: "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
