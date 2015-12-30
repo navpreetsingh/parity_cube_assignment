@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
   		@notice = "Check In Date is more than Check Out Date!!!"
       respond_to do |format|
   		  format.html {render "room_types/book"}
-        format.json { head :no_content }
+        format.json { render json: @notice }
       end
   	end
   end
