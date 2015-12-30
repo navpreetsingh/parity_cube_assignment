@@ -39,7 +39,7 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-ui-rails'
-gem 'jquery_datepicker'
+# gem 'jquery_datepicker'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 

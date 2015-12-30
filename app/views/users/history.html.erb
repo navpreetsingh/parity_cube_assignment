@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Room Type</th>
+      <th>Room No.</th>
+      <th>Check In</th>
+      <th>Check Out</th>
+    </tr>
+  </thead>
+  <tbody>  	
+    <% current_user.bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.room_type.name %></td>
+        <td><%= booking.room.number %></td>
+        <td><%= booking.check_in %></td>
+        <td><%= booking.check_out %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

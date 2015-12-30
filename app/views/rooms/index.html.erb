@@ -1,2 +1,24 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
+
+<h1>Listing Room</h1>
+<%= form_for :book_room, url: rooms_book_path, :authenticity_token => true do |f| %>
+	<%= f.hidden_field :room_type_id, :value => @room_type_id %>
+	<%= f.hidden_field :check_in, :value => @check_in %>
+	<%= f.hidden_field :check_out, :value => @check_out %>
+	<table class="table table-bordered">
+	  <thead>
+	    <tr>
+	      <th>Checkbox</th>
+	      <th>Room No.</th>      
+	    </tr>
+	  </thead>
+	  <tbody>  	
+	    <% @rooms.each do |rt| %>
+	      <tr>
+	        <td><%= check_box_tag 'room_ids[]', rt.id %></td>
+	        <td><%= rt.number %></td>	        
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	<%= f.submit "Book Rooms", :class => 'btn btn-primary' %> 
+<% end %>

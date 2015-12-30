@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  match 'rooms/index', via: [:get, :post]
+  devise_for :users 
+  resources :users, only: [] do
+    get "history", on: :member
+  end
+  match 'rooms/index', via: [:post]
 
-  get 'rooms/book'
+  post 'rooms/book'  
 
   resources :room_types, only: [:index] do
     member do
@@ -11,8 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'room_types#index', as: "/"  
-
+  root 'room_types#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
